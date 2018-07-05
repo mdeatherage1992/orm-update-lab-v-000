@@ -51,7 +51,10 @@ def self.find_by_name(name)
     Student.new(result[0], result[1], result[2])
 end
 
-
+def update
+   sql = "UPDATE songs SET name = ?, album = ? WHERE id = ?"
+   DB[:conn].execute(sql, self.name, self.grade, self.id)
+ end
 
 
 
