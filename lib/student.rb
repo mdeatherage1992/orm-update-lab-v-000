@@ -30,6 +30,9 @@ def self.drop_table
 end
 
 def save
+  if self.id
+    self.update
+  else
    sql = <<-SQL
      INSERT INTO students (name, grade)
      VALUES (?, ?)
@@ -61,7 +64,7 @@ def update
   new_student.id = row[0]
   new_student.name =  row[1]
   new_student.length = row[2]
-  new_student 
+  new_student
 end
 
 
